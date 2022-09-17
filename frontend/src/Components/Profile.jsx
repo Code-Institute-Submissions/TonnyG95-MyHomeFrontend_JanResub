@@ -104,7 +104,7 @@ function Profile() {
       useEffect(()=>{
         async function GetProfileInfo(){
           try {
-            const response = await Axios.get(`https://8000-tonnyg95-myhome-2864quj0ulx.ws-eu64.gitpod.io/api/profiles/${GlobalState.userId}`);
+            const response = await Axios.get(`https://ci-myhome.herokuapp.com/api/profiles/${GlobalState.userId}`);
             console.log(response.data)
             dispatch({type: 'catchUserProfileInfo', profileObject: response.data })
           } catch(e){
@@ -146,7 +146,7 @@ function Profile() {
                 
                 try {
 
-                    const response = await Axios.patch(`https://8000-tonnyg95-myhome-2864quj0ulx.ws-eu64.gitpod.io/api/profiles/${GlobalState.userId}/update/`, formData);
+                    const response = await Axios.patch(`https://ci-myhome.herokuapp.com/api/profiles/${GlobalState.userId}/update/`, formData);
                     console.log(response);
                     navigate(0)
                     
@@ -293,7 +293,7 @@ function Profile() {
                       </Row>
             
                       <Button className="m-3" variant="success" type="submit">
-                        Save <i class="fa-solid fa-floppy-disk"></i>
+                        Save <i className="fa-solid fa-floppy-disk"></i>
                       </Button>
                       
                     </Form>
@@ -313,7 +313,7 @@ function Profile() {
                   <h5 className='text-center my-3'>Welcome Back {GlobalState.userUsername}</h5> 
 
 
-                  <img className='rounded my-4 placeholed-image' src={ state.userProfile.profilePic ? state.userProfile.profilePic : 'https://res.cloudinary.com/dsq1kzjdy/image/upload/v1662651727/media/No-Image-Placeholder.svg_bgopvn.png' } />
+                  <img className='rounded my-4 placeholed-image' src={ state.userProfile.profilePic ? state.userProfile.profilePic : 'https://res.cloudinary.com/dsq1kzjdy/image/upload/v1663351361/media/image-placeholder_ooclbg.png' } />
                 
                     <h5 className='text-center m-4' >Information:</h5>
 
@@ -427,7 +427,7 @@ function Profile() {
                       </Row>
             
                       <Button className="m-3" variant="success" type="submit">
-                        Save <i class="fa-solid fa-floppy-disk"></i>
+                        Save <i className="fa-solid fa-floppy-disk"></i>
                       </Button>
 
                       

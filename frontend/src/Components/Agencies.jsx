@@ -41,7 +41,7 @@ function Agencies() {
       useEffect(()=>{
         async function GetAgencies(){
           try {
-            const response = await Axios.get(`https://8000-tonnyg95-myhome-2864quj0ulx.ws-eu64.gitpod.io/api/profiles/`);
+            const response = await Axios.get(`https://ci-myhome.herokuapp.com/api/profiles/`);
             console.log(response.data);
             dispatch({type: 'catchAgencies', agenciesArray: response.data });
             dispatch({type: "loadingDone"});
@@ -79,7 +79,7 @@ function Agencies() {
                         <Col xs={12} md={7} lg={7} xl={7} className='mx-auto'>
 
                             <Card key={agency.id} className='py-3 box' >
-                            <Card.Img className='p-3 placeholed-image' variant="top" src={agency.profile_picture ? agency.profile_picture : 'https://res.cloudinary.com/dsq1kzjdy/image/upload/v1662651727/media/No-Image-Placeholder.svg_bgopvn.png'} />
+                            <Card.Img className='p-3 placeholed-image' variant="top" src={agency.profile_picture ? agency.profile_picture : 'https://res.cloudinary.com/dsq1kzjdy/image/upload/v1663351361/media/image-placeholder_ooclbg.png'} />
                                 <Card.Body>
                                     <Card.Title>{agency.agency_name.substring(0, 100)}</Card.Title>
                                     <Card.Text>

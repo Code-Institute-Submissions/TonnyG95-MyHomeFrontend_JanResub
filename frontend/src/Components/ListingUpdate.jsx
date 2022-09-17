@@ -129,7 +129,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 				try {
 					const response = await Axios.patch(
-						`https://8000-tonnyg95-myhome-2864quj0ulx.ws-eu64.gitpod.io/api/listings/${props.listingData.id}/update/`,
+						`https://ci-myhome.herokuapp.com/api/listings/${props.listingData.id}/update/`,
 						formData
 					);
 
@@ -159,6 +159,7 @@ import 'react-toastify/dist/ReactToastify.css';
               <Form.Group className="mb-3" controlId="formBasic">
                 <Form.Label>Title</Form.Label>
                 <Form.Control
+                
                   type="text"
                   placeholder="Enter Title"
                   value={state.titleValue}
@@ -318,7 +319,7 @@ import 'react-toastify/dist/ReactToastify.css';
             <Row
               className="justify-content-center align-items-center"
             >
-              <Button type="submit" className='btn btn-success mt-3'>Update <i class="bi bi-save"></i></Button>
+              <Button type="submit" className='btn btn-success mt-3'>Update <i className="bi bi-save"></i></Button>
               
 
            </Row>

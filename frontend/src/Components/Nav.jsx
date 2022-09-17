@@ -15,7 +15,7 @@ import StateContext from '../Contexts/StateContext';
 import DispatchContext from '../Contexts/DispatchContext';
 
 
-function loggedout(props) {
+function LoggedOut(props) {
   toast.error(props)
    
   }
@@ -28,16 +28,21 @@ function Navigation() {
 
   async function HandleLogout(){
    try {
-    const response = await Axios.post("https://8000-tonnyg95-myhome-2864quj0ulx.ws-eu64.gitpod.io/api-auth-djoser/token/logout/", GlobalState.userToken, {headers: {Authorization : 'Token '.concat(GlobalState.userToken)}})
+    const response = await Axios.post("https://ci-myhome.herokuapp.com/api-auth-djoser/token/logout/", GlobalState.userToken, {headers: {Authorization : 'Token '.concat(GlobalState.userToken)}})
     console.log(response)
+    
+    
     GlobalDispatch({ type: 'logout'})
     navigate(0)
+    LoggedOut('You are logged out')
    } catch(e){
     console.log(e.response)
    }
-   loggedout('You are logged out')
   }
+ 
+  
 
+  
   return (
     <Navbar bg="dark" className=" p-4 "variant="dark" expand="lg" collapseOnSelect>
       <Container fluid>
@@ -52,24 +57,24 @@ function Navigation() {
             navbarScroll
           >
             <LinkContainer to="/">
-              <Nav.Link> <i class="fa-solid fa-house"></i> Home Page</Nav.Link>
+              <Nav.Link> <i className="fa-solid fa-house"></i> Home Page</Nav.Link>
             </LinkContainer>
 
             <LinkContainer to="/listings">
-              <Nav.Link> <i class="fa-solid fa-house-laptop"></i> Listings</Nav.Link>
+              <Nav.Link> <i className="fa-solid fa-house-laptop"></i> Listings</Nav.Link>
             </LinkContainer>
 
             <LinkContainer to="/agencies">
-              <Nav.Link> <i class="fa-solid fa-building"></i> Agencies</Nav.Link>
+              <Nav.Link> <i className="fa-solid fa-building"></i> Agencies</Nav.Link>
             </LinkContainer>
 
 
             <LinkContainer to="/add-property">
-              <Nav.Link> <i class="fa-solid fa-house-medical"></i> Add Property</Nav.Link>
+              <Nav.Link> <i className="fa-solid fa-house-medical"></i> Add Property</Nav.Link>
             </LinkContainer>
 
             <LinkContainer to="/">
-            {GlobalState.userIsLogged ? <Nav.Link onClick={HandleLogout}> <i class="fa-solid fa-user"></i> Logout</Nav.Link> :<Nav.Link> <Link className='no-decoration text-light' to='/login'><i class="fa-solid fa-user"></i> Login</Link> </Nav.Link> }
+            {GlobalState.userIsLogged ? <Nav.Link onClick={HandleLogout}> <i className="fa-solid fa-user"></i> Logout</Nav.Link> :<Nav.Link> <Link className='no-decoration text-light' to='/login'><i className="fa-solid fa-user"></i> Login</Link> </Nav.Link> }
             </LinkContainer>
 
             <LinkContainer to="/profile">

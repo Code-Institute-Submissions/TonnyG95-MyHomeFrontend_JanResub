@@ -63,7 +63,7 @@ function ListingDetails() {
     async function GetPListingInfo() {
       try {
         const response = await Axios.get(
-          `https://8000-tonnyg95-myhome-2864quj0ulx.ws-eu64.gitpod.io/api/listings/${params.id}/`
+          `https://ci-myhome.herokuapp.com/api/listings/${params.id}/`
         );
 
         dispatch({
@@ -82,7 +82,7 @@ function ListingDetails() {
       async function GetProfileInfo() {
         try {
           const response = await Axios.get(
-            `https://8000-tonnyg95-myhome-2864quj0ulx.ws-eu64.gitpod.io/api/profiles/${state.listingInfo.seller}/`
+            `https://ci-myhome.herokuapp.com/api/profiles/${state.listingInfo.seller}/`
           );
 
           dispatch({
@@ -132,7 +132,7 @@ function ListingDetails() {
     const confirmDelete = window.confirm('Are you sure you want to delete this listing?')
     if (confirmDelete){
       try {
-        const response = await Axios.delete(`https://8000-tonnyg95-myhome-2864quj0ulx.ws-eu64.gitpod.io/api/listings/${params.id}/delete/`)
+        const response = await Axios.delete(`https://ci-myhome.herokuapp.com/api/listings/${params.id}/delete/`)
         console.log(response.data)
         navigate('/listings')
       } catch(e){
@@ -171,7 +171,7 @@ function ListingDetails() {
               src={
                 state.sellerProfileInfo.profile_picture
                   ? state.sellerProfileInfo.profile_picture
-                  : "https://res.cloudinary.com/dsq1kzjdy/image/upload/v1662651727/media/No-Image-Placeholder.svg_bgopvn.png"
+                  : "https://res.cloudinary.com/dsq1kzjdy/image/upload/v1663351361/media/image-placeholder_ooclbg.png"
               }
               alt="test"
             />
@@ -238,7 +238,7 @@ function ListingDetails() {
               {GlobalState.userId == state.listingInfo.seller ? (
                 <div>
                   <Button onClick={handleShow} className="btn btn-primary m-2">
-                    Edit <i class="bi bi-pencil-square"></i>
+                    Edit <i className="bi bi-pencil-square"></i>
                   </Button>
 
                 {/* Modal */}
@@ -275,7 +275,7 @@ function ListingDetails() {
 
 
                   <Button onClick={DeleteHandler} className="btn btn-danger m-2">
-                    Delete <i class="bi bi-trash3"></i>
+                    Delete <i className="bi bi-trash3"></i>
                   </Button>
                 </div>
               ) : (
@@ -304,12 +304,12 @@ function ListingDetails() {
           <div className="my-3">
             <span onClick={PreviousPicture}>
               {" "}
-              <i class="slider-icons mx-2 w-25 h-25 fa-solid fa-circle-arrow-left"></i>
+              <i className="slider-icons mx-2 w-25 h-25 fa-solid fa-circle-arrow-left"></i>
             </span>
             Picture: {currentPicture + 1}
             <span onClick={NextPicture}>
               {" "}
-              <i class="slider-icons mx-2 w-25 h-25 fa-solid fa-circle-arrow-right"></i>
+              <i className="slider-icons mx-2 w-25 h-25 fa-solid fa-circle-arrow-right"></i>
             </span>
           </div>
 
@@ -340,35 +340,35 @@ function ListingDetails() {
             <Col className="mt-3 text-muted">
               {state.listingInfo.furnished ? (
                 <h5>
-                  Furnished: <i class="bi bi-check2-square"></i>
+                  Furnished: <i className="bi bi-check2-square"></i>
                 </h5>
               ) : (
                 ""
               )}
               {state.listingInfo.pool ? (
                 <h5>
-                  Pool: <i class="bi bi-check2-square"></i>
+                  Pool: <i className="bi bi-check2-square"></i>
                 </h5>
               ) : (
                 ""
               )}
               {state.listingInfo.elevator ? (
                 <h5>
-                  Elevator: <i class="bi bi-check2-square"></i>
+                  Elevator: <i className="bi bi-check2-square"></i>
                 </h5>
               ) : (
                 ""
               )}
               {state.listingInfo.cctv ? (
                 <h5>
-                  CCTV: <i class="bi bi-check2-square"></i>
+                  CCTV: <i className="bi bi-check2-square"></i>
                 </h5>
               ) : (
                 ""
               )}
               {state.listingInfo.parking ? (
                 <h5>
-                  Parking: <i class="bi bi-check2-square"></i>
+                  Parking: <i className="bi bi-check2-square"></i>
                 </h5>
               ) : (
                 ""
