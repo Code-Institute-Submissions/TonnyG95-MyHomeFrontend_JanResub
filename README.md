@@ -331,22 +331,13 @@ How to run this project within a local IDE, such as VSCode:
 
 # Credits
 
-### Links
-- [Whitenoise](http://whitenoise.evans.io/en/stable/index.html) Radically simplified static file serving for Python web apps
-- [Sqlparse](https://github.com/andialbrecht/sqlparse) sqlparse is a non-validating SQL parser for Python
-- [Pytz](https://pythonhosted.org/pytz/) World Timezone Definitions for Python
-- [Psycopg](https://www.psycopg.org/) Psycopg is the most popular PostgreSQL adapter for the Python
-- [Gunicorn](https://docs.gunicorn.org/en/latest/index.html) Gunicorn ('Green Unicorn') is a pure-Python WSGI server for UNIX
-- [Cloudinary](https://cloudinary.com/) Used for hosting static files
-- [Asgiref](https://asgi.readthedocs.io/en/latest/) ASGI is a spiritual successor to WSGI
-- [Django](https://www.djangoproject.com/) High-level Python web framework that encourages rapid development
-- [web.dev](https://web.dev/) Used to test pages in a lab environment powered by PageSpeed Insights.
-- [GTMetrix](https://gtmetrix.com/) Used to test how my page performs
-- [Django Cors Headers](https://pypi.org/project/django-cors-headers/) A Django App that adds Cross-Origin Resource Sharing (CORS) headers to responses. 
-- [Django Rest Framework](https://www.django-rest-framework.org/) Django REST framework is a powerful and flexible toolkit for building Web APIs. 
-- [Django Jazzmin](https://django-jazzmin.readthedocs.io/) Intended as a drop-in app to jazz up django admin site.
-- [Pillow](https://pypi.org/project/Pillow/) This library provides extensive file format support, an efficient internal representation, and fairly powerful image processing capabilities.
-- [Djoser](https://djoser.readthedocs.io/en/latest/index.html) Djoser library provides a set of Django Rest Framework views to handle basic actions such as registration, login, logout, password reset and account activation.
+### Links 
+- [Axios](https://axios-http.com/) Axios is a simple promise based HTTP client for the browser and node.js.
+- [React Bootstrap](https://react-bootstrap.github.io/) The most popular front-end framework
+Rebuilt for React.
+- [Immer](https://immerjs.github.io/immer/) Immer simplifies handling immutable data structures
+- [React Leaflet](https://react-leaflet.js.org/) React components for Leaflet maps
+- [React Toastify](https://www.npmjs.com/package/react-toastify) React-Toastify allows you to add notifications to your app with ease. No more nonsense!
 
 
 ### Acknowledgements
