@@ -14,19 +14,31 @@ A deployed API can be found [Here](https://ci-myhome.herokuapp.com/).
 
 # Table of contents
 
-- [MyHome](#myhome)
+- [MyHome FrontEnd](#myhome-frontend)
 - [Table of contents](#table-of-contents)
 - [Introduction](#introduction)
     - [What is MyHome?](#what-is-myhome)
     - [What is the idea behind this project?](#what-is-the-idea-behind-this-project)
 - [Technologies](#technologies)
-    - [Frontend](#frontend-technologies)
-    - [Backend](#backend-technologies)
-- [User Stories](#user-stories)
-- [Testing](#testing)
+    - [This application is separated into two parts. BackEnd and FrontEnd. Both applications are deployed separately, and both use different technologies. You can find more information about them here](#this-application-is-separated-into-two-parts-backend-and-frontend-both-applications-are-deployed-separately-and-both-use-different-technologies-you-can-find-more-information-about-them-here)
+    - [FrontEnd Technologies](#frontend-technologies)
+    - [BackEnd Technologies](#backend-technologies)
+    - [FrontEnd Requirements](#frontend-requirements)
+    - [User Stories](#user-stories)
+    - [Seller Stories](#seller-stories)
+    - [Buyer/Tenant Stories](#buyertenant-stories)
+    - [Website Performance](#website-performance)
+- [Structure](#structure)
+  - [UI \\ UX](#ui--ux)
+  - [Design Choices](#design-choices)
+    - [Colors](#colors)
+- [Features](#features)
+  - [Included Features](#included-features)
+  - [Future Implementations](#future-implementations)
+- [Testing / Validation](#testing--validation)
     - [Testing User Stories](#testing-user-stories)
+    - [Manual Validation](#manual-validation)
     - [Bugs and solutions](#bugs-and-solutions)
-    - [Performance](#api-performance)
 - [Deployment](#deployment)
 - [Forking the Repository](#forking-the-repository)
 - [Creating a Clone](#creating-a-clone)
@@ -41,16 +53,16 @@ A deployed API can be found [Here](https://ci-myhome.herokuapp.com/).
 
 ### What is MyHome?
 
-MyHome is a real estate portal for seller and buyers, sellers can list their properties easly and quickly and buyes have full screen listing page whit all the listings on left side and map on right side so thay can easly select property but look or short desctipn of property or by location where they want to buy or rent houses,apartmants or offices.
+MyHome is a real estate portal for sellers and buyers, sellers can list their properties efficiently and quickly, and buyers have a full-screen listing page whit all the listings on the left side and a map on the right side so thay can easily select properties by look or short description of the property or by the location where they want to buy or rent houses, apartments or offices.
 
 ### What is the idea behind this project?
-The idea behidn MyHome was to create a simple,user-intuitive real esteted app that is not overwhelmed for users or sellers, thats works fast and is secure with simple registration and login forms and with quickes way to add new listins that buyrs or tenents can select by scroling on left side where they can see pcituers and short description of propery or on right by selecting propery on the map.
+The idea behind MyHome was to create a simple, user-intuitive real estate app that is not overwhelming for users or sellers, that works fast and is secure with simple registration and login forms and with a quick way to add new listings that buyers or tenants can select by scrolling on the left side where they can see pictures and a short description of the property or on the right by choosing property on the map.
 
 [Back to top](#table-of-contents)
 
-# Technologies 
+# Technologies
 
-### This aplication is seperated in two parts. BackEnd and FrontEnd. Both apications are depolyed speretly and both use difrent technologies. You can find more informatiot about them here
+### This application is separated into two parts. BackEnd and FrontEnd. Both applications are deployed separately, and both use different technologies. You can find more information about them here
 
 
 ### FrontEnd Technologies
@@ -58,28 +70,22 @@ The idea behidn MyHome was to create a simple,user-intuitive real esteted app th
 - HTML (build up layout and content of the application.)
 - CSS (custom styling and override Bootstrap stylings to fit with the theme of the app.)
 - ReactJS (interactive functionalities of the app.)
-- React-Bootstrap (the responsive front-end framework to build the layout and style the app.)
+- React-Bootstrap (the responsive front-end framework to build the layout and style of the app.)
 
 ### BackEnd Technologies
 
 - Python (backend functionalities handling data, database interaction, and CRUD functionalities.)
-- Django (the core framework used to build backend for MyHome.)
+- Django (the core framework used to build the backend for MyHome.)
 
 
-### Backend Requirements
+### FrontEnd Requirements
 
-- Asgiref
-- Cloudinary
-- Gunicorn
-- Psycopg
-- Coreapi
-- Django
-- Django Cors Headers
-- Django Jazzmin
-- Django Rest Framework
-- Pillow
-- Djoser
-- Whitenoise
+- Axios
+- React Bootstrap
+- Immer
+- Leaflet
+- Toastify
+
 
 [Back to top](#table-of-contents)
 
@@ -87,9 +93,9 @@ The idea behidn MyHome was to create a simple,user-intuitive real esteted app th
 
 ### User Stories
 - As a site user, I want to create an account.
-- As a Site User, I login in to my account quickly
-- As a Site User, I can visit website from any device
-- As a Site User, I don't have to wait to long for website to load
+- As a Site User, I login into my account quickly
+- As a Site User, I can visit a website from any device
+- As a Site User, I don't have to wait too long for a website to load
 - As a Site User, I want to be able to edit my profile information
 - As a site admin, I want to be able to see my registered users and their profiles
 - As a site admin, I want to be able to edit listings
@@ -97,78 +103,155 @@ The idea behidn MyHome was to create a simple,user-intuitive real esteted app th
 - As a site admin, I can delete users
 
 ### Seller Stories
-- As a seller, I can add a new listing to webiste
+- As a seller, I can add a new listing to the website
 - As a seller, I can create, read, update and delete my listings
 - As a seller, I can upload pictures for my listings
-- As a seller, I can display my or my compnay contant information
-- As a seller, I can display my other lisintgs on my profile
+- As a seller, I can display my or my company contact information
+- As a seller, I can display my other listings on my profile
 
-### Buyer/Tenent Stories
+### Buyer/Tenant Stories
 - As a buyer, I can view a listings
-- As a buyer, I can see pictures of property
-- As a buyer, I can see seller contact infromation
-- As a buyer, I can all listings by seller i'm interest in
-- As a buyer, I can view map and property location
+- As a buyer, I can see pictures of the property
+- As a buyer, I can see the seller's contact information
+- As a buyer, I can see all listings by sellers I'm interested in
+- As a buyer, I can view maps and property location
 - As a buyer, I can view listing details
 
 [Back to top](#table-of-contents)
 
-# Testing
-
-### Testing User Stories 
-
-1. As a site User, I was able to create my account. 
-    - by clicking on registration I was prompted to fill out a username, e-mail and password fields after I fill out the required information my account was created.    
-2. As a Site User, I was able to access my listigns.
-    - While on website i can access listings and listings details where i can see listing details.
-3. As a Seller, I was able to add a new listings to website.
-    - While logged in i was able to add new listing.
-4. As a Seller, I was able create, read, update and delete my listings.
-    - While logged in i was able to create my listings, updated my listings and delete my listings.
-5. As a Seller, I was able to add infromation about my agency.
-    - While logged in i was able to edit my agency inforamtion and display information i wanted to.
-6. As a Buyer, I was able to see listings and listings details.
-    - - I was able to see all the listings on website
-7. As a Buyer, I was able to see seller information.
-- - I was able to see who listed properties i was interested in
-8. As a Buyer, I was able to see map.
-- - I was able to map and location where this listings is
-9. As a site Admin, I can see list of registered users.
-    - While logged in on admin panel i can see list of my users and i can manage them.
-8. As a site Admin, i can manage listings on website
-    - While logged in on admin panel i can see list of listings who is owner and i can manage them.
 
 
-### Bugs and solutions
+### Website Performance
 
-1. I had problem CORS between my frontend and backend.
-    - The solution was to install djnago-cors-headers and set CORS_ALLOW_ALL_ORIGINS: to True.
-2. I had problem with collectstatic function.
-    - With help of Jonh from Code Institue Tutor Assistance we ware able to collect all the statics files when we change cloudnery position in installed apps. 
-3. I wanted to deploy this project as one app but in the end i had to sepered them.
-    - Idea was to deploy frontend and backend as one project but even with help of Gemma from Code Institue Tutor Assistance we ware not able to get django to load React app so we decide to deploy it as 2 sepered projects
-4. There was a problem with heroku and github.
-    - The solution was to redeploy my app and create new postgres database.
-
-
-
-
-### API Performance
-
-![MdPsFXc](https://user-images.githubusercontent.com/47572512/190911774-891571a4-1054-4776-ba65-594f01eeee55.png)
+![jTtcnuS](https://user-images.githubusercontent.com/47572512/190927866-1007b7e7-cd16-477e-b03f-290d5d670ead.png)
 
 Test with [web.dev](https://web.dev/). gave me those results 
 
 
-![M14i3No](https://user-images.githubusercontent.com/47572512/190911892-520ae900-8740-43e2-8996-ce91cee5bbfc.png)
+![LCdIc94](https://user-images.githubusercontent.com/47572512/190927923-1f2d5438-faf0-42f5-97f7-760368505c7b.png)
 
 
 Test with [GTMetrix](https://gtmetrix.com/). gave me those results 
 
 
+# Structure
+
+## UI \ UX
+
+![oGpsCX4](https://user-images.githubusercontent.com/47572512/190928600-e42b6305-2095-4fae-815e-1bf2165a1c9d.png)
+
+The app design idea was created with Figma since this is my preferred tool. The project can be found. [Here](https://www.figma.com/file/IzBlSCW9u7BpNu8gZMZ83C/Untitled?node-id=0%3A1).
+
+## Design Choices
+
+The main idea for the design of this app was to make it look luxurious since this is a real estate portal. However, I still wanted to make it simple and intuitive so users can easily navigate a website and find the information they need. That's why I chose to go with an excellent combination of dark and light colours with a few lighters and darker accent colors that can be seen on hover on some elements such as cards
+
+![cICgcvX](https://user-images.githubusercontent.com/47572512/190928971-20088c2b-3570-49b3-89bf-f8bce86093aa.jpeg)
+
+As it can be seen on listing card on right side
+
+![LbmfsD2](https://user-images.githubusercontent.com/47572512/190928988-0920a01f-dcbc-4e86-9b8a-50182dbe6258.jpeg)
+
+Or here on listings card on right
+
+### Colors
+
+![colors](https://user-images.githubusercontent.com/47572512/190929327-33b3ccf6-b298-49d5-b246-7dd1617b4264.png)
+
+[Back to top](#table-of-contents)
+
+# Features
+
+## Included Features
+
+- Fully responsive desing
+- Simple but beautify UI
+- Full CRUD Functionality
+- Login and Registration
+- Interactive Map
+- User Profiles
+- Update Profiles
+- Seller Agencies
+
+
+## Future Implementations
+
+This project will keep receiving security and features updates. It will be in active development. The project's current state has all the basic functionalities needed for a user to have fully funcional portal. The site owner also has access to all the data through Django's admin panel. The next phase will be adding more features to the site, enhancing user experience and control over the app. The following features are planned to be implemented:
+
+- Admin panel in frontend app
+- Contact form for users to contact sellers directly to on listing details page
+- Activaction and welcome e-mail
+- Notification system 
+- Ability to collect Latitude and Longitude directly from map (Curently those information must come from google maps)
+- Mailchimp integration
 
 
 [Back to top](#table-of-contents)
+
+# Testing / Validation
+
+### Testing User Stories 
+
+1. As a site User, I was able to create my account. 
+    - by clicking on registration, I was prompted to fill out username, e-mail and password fields. After I filled out the required information, my account was created.    
+2. As a Site User, I could access listings.
+    - While on the website, I can access listings and listings details.
+3. As a Seller, I could add new listings to the website.
+    - While logged in, I was able to add a new listing.
+4. As a Seller, I was able to create, read, update and delete my listings.
+    - While logged in, I was able to create my listings, update my listings and delete my listings.
+5. As a Seller, I could add information about my agency.
+    - While logged in, I can edit agency information and display the information I want.
+6. As a Buyer, I was able to see listings and listings details.
+    - - I was able to see all the listings on the website
+7. As a Buyer, I was able to see seller information.
+    - I was able to see who listed properties I was interested in
+8. As a Buyer, I was able to see the map.
+   - I was able to map and location where this listing is
+1. As a site Admin, I can see a list of registered users.
+    - While logged in on the admin panel, I saw and managed a list of my users.
+2. As a site Admin, I can manage listings on the website
+    - While logged in on the admin panel, I can see a list of listings and edit them
+    
+### Manual Validation
+
+I tested following elements on every page: 
+
+Logo redirection to home page
+
+- Nav links
+- Footer links
+- Social links opening in new tab
+I tested profile updated and agency created to be required for ading,edit and delete listings everything worked as intended.
+I tested login and registration pages, everything worked as intended.
+I tested that seller can only edit and delete their own listngs.
+I tested responsive design and all pages are responsive.
+
+
+### Bugs and solutions
+
+1. I had a problem with CORS between my front and back end.
+    - The solution was to install Django-cors-headers and set CORS_ALLOW_ALL_ORIGINS: to True.
+2. I had a problem with the static collect function in Django.
+    - With the help of Jonh from Code Institute Tutor Assistance, we collected all the statics files after we changed the Cloudinary position in the list of installed apps. 
+3. I wanted to deploy this project as one app, but in the end, I had to separate them.
+    - The idea was to deploy the frontend and backend as one project, but even with the help of Gemma from Code Institue Tutor Assistance, we were not able to get Django to load React app, so we decided to deploy it as 2 separated projects
+4. There was a problem with Heroku and GitHub.
+    - The solution was redeploying my app and creating a new Postgres database.
+5. Problem with Bootstrap Alerts
+ - I had a problem with loading bootstrap alerts, so in the end, I changed them for Toastify alerts
+6. Problem with font-awsome icons. 
+ - I used font awesome icons, but their icons have classes, and that was showing errors in the console so I change class to classNames, and the icons worked fine
+7. Problem with an icon for React Leaflet maps 
+ - I had a problem that react leaflet was not loading, but I forgot to import them
+8. Problem with React Leaflet container
+ - React Leaflet container was not loading the map because I forgot to add max-height to the container
+9. Latest version of React-Router-Dom was giving me some problems, so I downgraded it to an older version. 
+10. Deployment
+ - For deployment, I had so many problems, the initial plan was to deploy the backend and frontend as one website, but that did not work; I could not get Django to render React app. Then I tried to deploy React JS to Heroku, and the first deployment, everything worked fine, but after the refresh, the app would crash with an error "H10" after a lot of googling, I find out a solution for my problem on [This Link ](https://dev.to/lawrence_eagles/causes-of-heroku-h10-app-crashed-error-and-how-to-solve-them-3jnl/)
+
+
+
 
 # Deployment
 
