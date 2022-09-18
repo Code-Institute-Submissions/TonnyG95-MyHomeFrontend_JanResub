@@ -29,14 +29,14 @@ function Navigation() {
   async function HandleLogout(){
    try {
     const response = await Axios.post("https://ci-myhome.herokuapp.com/api-auth-djoser/token/logout/", GlobalState.userToken, {headers: {Authorization : 'Token '.concat(GlobalState.userToken)}})
-    console.log(response)
+    
     
     
     GlobalDispatch({ type: 'logout'})
     navigate(0)
     LoggedOut('You are logged out')
    } catch(e){
-    console.log(e.response)
+    
    }
   }
  

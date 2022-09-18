@@ -257,10 +257,10 @@ function AddProperty() {
       async function GetProfileInfo(){
         try {
           const response = await Axios.get(`https://ci-myhome.herokuapp.com/api/profiles/${GlobalState.userId}`);
-          console.log(response.data)
+          
           dispatch({type: 'catchUserProfileInfo', profileObject: response.data })
         } catch(e){
-          console.log(e.response)
+         
         }
       }
       GetProfileInfo()
@@ -269,7 +269,7 @@ function AddProperty() {
 
     function FormSubmit(e) {
         e.preventDefault();
-        console.log("form subited");
+        
         dispatch({type: 'changeSendRequest'});
       }
 
@@ -305,10 +305,10 @@ function AddProperty() {
                 try {
 
                     const response = await Axios.post("https://ci-myhome.herokuapp.com/api/listings/create/", formData);
-                    console.log(response);
+                    
                     navigate('/listings')
                 } catch (e) {
-                    console.log(e.response);
+                    
                 }
 
             }

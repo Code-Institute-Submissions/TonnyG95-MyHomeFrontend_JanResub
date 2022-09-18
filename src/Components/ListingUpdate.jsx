@@ -133,10 +133,10 @@ import 'react-toastify/dist/ReactToastify.css';
 						formData
 					);
 
-					console.log(response.data)
+					
                     navigate(0);
 				} catch (e) {
-					console.log(e.response)
+					
 				}
 			}
 			UpdateProperty();

@@ -52,7 +52,7 @@ function Listings() {
         setAllListings(response.data)
         setDataIsLoading(false) 
       } catch(error){
-        console.log(error.response)
+        
       }
     }
     GetAllListings();
@@ -62,7 +62,7 @@ function Listings() {
   },[])
  
   if (dataIsLoading === false ){
-    console.log(allListings)
+    
   }
 
   if (dataIsLoading === true ){

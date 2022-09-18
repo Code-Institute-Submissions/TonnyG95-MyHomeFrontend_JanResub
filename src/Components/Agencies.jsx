@@ -42,11 +42,11 @@ function Agencies() {
         async function GetAgencies(){
           try {
             const response = await Axios.get(`https://ci-myhome.herokuapp.com/api/profiles/`);
-            console.log(response.data);
+            
             dispatch({type: 'catchAgencies', agenciesArray: response.data });
             dispatch({type: "loadingDone"});
           } catch(e){
-            console.log(e.response)
+            
           }
         }
         GetAgencies()

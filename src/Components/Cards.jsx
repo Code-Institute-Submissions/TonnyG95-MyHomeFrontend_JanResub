@@ -23,7 +23,7 @@ function Cards() {
         setAllListings(response.data)
         setDataIsLoading(false) 
       } catch(error){
-        console.log(error.response)
+        
       }
     }
     GetAllListings();
@@ -33,7 +33,7 @@ function Cards() {
   },[])
  
   if (dataIsLoading === false ){
-    console.log(allListings)
+    
   }
 
   if (dataIsLoading === true ){

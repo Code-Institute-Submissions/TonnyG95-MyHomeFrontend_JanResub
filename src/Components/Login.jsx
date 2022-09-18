@@ -80,7 +80,7 @@ function Login() {
 
   function FormSubmit(e) {
     e.preventDefault();
-    console.log("form subited");
+    
     dispatch({type: 'changeSendRequest'});
   }
 
@@ -99,7 +99,7 @@ function Login() {
             { cancelToken: source.token }
           );
 
-          console.log(response);
+          
           dispatch({
             type: 'catchToken',
             tokenValue: response.data.auth_token,
@@ -143,12 +143,12 @@ function Login() {
             { cancelToken: source.token }
           );
 
-          console.log(response);
+          
           GlobalDispatch({type: 'userSignsIn', usernameInfo: response.data.username, emailInfo: response.data.email, IdInfo: response.data.id });
           navigate('/');
           loggedin('You are logged in')
         } catch (error) {
-          console.log(error.response);
+          
         }
       }
       GetUserInfo();

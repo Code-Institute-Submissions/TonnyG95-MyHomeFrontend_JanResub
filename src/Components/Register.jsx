@@ -142,11 +142,11 @@ function Register() {
             
           );
 
-          console.log(response);
+          
           navigate('/login')
           AccCreated('Account Created, You can now log in')
         } catch (error) {
-          console.log(error.response);
+          
           if (error.response.data.username){
             dispatch({type: 'usernameExists'})
             ErrorMsg('Username Exists')

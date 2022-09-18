@@ -133,10 +133,10 @@ function ListingDetails() {
     if (confirmDelete){
       try {
         const response = await Axios.delete(`https://ci-myhome.herokuapp.com/api/listings/${params.id}/delete/`)
-        console.log(response.data)
+        
         navigate('/listings')
       } catch(e){
-        console.log(e.response.data)
+       
       }
     }
   }

@@ -105,10 +105,10 @@ function Profile() {
         async function GetProfileInfo(){
           try {
             const response = await Axios.get(`https://ci-myhome.herokuapp.com/api/profiles/${GlobalState.userId}`);
-            console.log(response.data)
+            
             dispatch({type: 'catchUserProfileInfo', profileObject: response.data })
           } catch(e){
-            console.log(e.response)
+            
           }
         }
         GetProfileInfo()
@@ -126,7 +126,7 @@ function Profile() {
 
       function FormSubmit(e) {
         e.preventDefault();
-        console.log("form subited");
+        
         dispatch({type: 'changeSendRequest'});
       }
 
@@ -147,11 +147,11 @@ function Profile() {
                 try {
 
                     const response = await Axios.patch(`https://ci-myhome.herokuapp.com/api/profiles/${GlobalState.userId}/update/`, formData);
-                    console.log(response);
+                    
                     navigate(0)
                     
                 } catch (e) {
-                    console.log(e.response);
+                    
                 }
 
             }
