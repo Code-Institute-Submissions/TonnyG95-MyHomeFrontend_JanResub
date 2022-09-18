@@ -4,9 +4,9 @@ import { Container, Row, Col } from "react-bootstrap";
 function Footer() {
   return (
     <footer>
-      <Row className="bg-dark py-3">
+      <Row className="bg-dark">
         <Container>
-          <Row>
+          <Row className="py-2">
             <Col
               xs={12}
               sm={12}
