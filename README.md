@@ -1,5 +1,5 @@
 
-# MyHome API
+# MyHome FrontEnd
 
 
 ![myhome](https://user-images.githubusercontent.com/47572512/190903948-8245fb7b-33f4-4a24-b6f8-f54863d818ad.png)
