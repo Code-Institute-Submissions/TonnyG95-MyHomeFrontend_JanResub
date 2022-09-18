@@ -1,29 +1,32 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Row, Col, Button, Container, Spinner, Modal, Form } from "react-bootstrap";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import {
+  Row,
+  Col,
+  Button,
+  Container,
+  Spinner,
+  Modal,
+} from "react-bootstrap";
+import { useNavigate, useParams } from "react-router-dom";
 import { useImmerReducer } from "use-immer";
 import Axios from "axios";
 
 // Contexts
 import StateContext from "../Contexts/StateContext";
 
-
 // Component
 
 import ListingUpdate from "./ListingUpdate";
 
-
-
-
 // React Leaflet
-import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
-import { Icon } from "leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+;
 
 function ListingDetails() {
   const navigate = useNavigate();
   const GlobalState = useContext(StateContext);
 
-  // Modal 
+  // Modal
 
   const [show, setShow] = useState(false);
 
@@ -127,17 +130,18 @@ function ListingDetails() {
     date.getDate() + 1
   }/${date.getMonth()}/${date.getFullYear()}`;
 
-
-  async function DeleteHandler(){
-    const confirmDelete = window.confirm('Are you sure you want to delete this listing?')
-    if (confirmDelete){
+  async function DeleteHandler() {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this listing?"
+    );
+    if (confirmDelete) {
       try {
-        const response = await Axios.delete(`https://ci-myhome.herokuapp.com/api/listings/${params.id}/delete/`)
-        
-        navigate('/listings')
-      } catch(e){
-       
-      }
+        const response = await Axios.delete(
+          `https://ci-myhome.herokuapp.com/api/listings/${params.id}/delete/`
+        );
+
+        navigate("/listings");
+      } catch (e) {}
     }
   }
 
@@ -241,40 +245,19 @@ function ListingDetails() {
                     Edit <i className="bi bi-pencil-square"></i>
                   </Button>
 
-                {/* Modal */}
-                <div className="popup">
+                  {/* Modal */}
+                  <div className="popup">
+                    <>
+                      <Modal show={show} onHide={handleClose}>
+                        <ListingUpdate listingData={state.listingInfo} />
+                      </Modal>
+                    </>
+                  </div>
 
-                  <>
-
-                    <Modal show={show} onHide={handleClose}>
-                      <ListingUpdate listingData ={state.listingInfo} />
-                    </Modal>
-                  </>
-
-
-
-
-
-
-
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                  <Button onClick={DeleteHandler} className="btn btn-danger m-2">
+                  <Button
+                    onClick={DeleteHandler}
+                    className="btn btn-danger m-2"
+                  >
                     Delete <i className="bi bi-trash3"></i>
                   </Button>
                 </div>

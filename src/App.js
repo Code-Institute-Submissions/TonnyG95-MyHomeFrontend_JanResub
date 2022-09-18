@@ -5,13 +5,16 @@ import { useImmerReducer } from "use-immer";
 
 
 // Toastify
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-// React Leaflet
-import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
-import { Icon } from "leaflet";
+
+
+// Context
+
+import DispatchContext from './Contexts/DispatchContext';
+import StateContext from './Contexts/StateContext';
 
 
 // Components
@@ -27,14 +30,11 @@ import AddProperty from './Components/AddProperty';
 import Profile from './Components/Profile';
 import ListingDetails from './Components/ListingDetails';
 import AgencyDetails from './Components/AgencyDetails';
-
-
-
-// Context
-
-import DispatchContext from './Contexts/DispatchContext';
-import StateContext from './Contexts/StateContext';
 import Agencies from './Components/Agencies';
+import PageNotFound from './Components/PageNotFound';
+
+
+
 
 function App() {
 
@@ -99,6 +99,8 @@ function App() {
 	  <Route path='/agencies' element={ <Agencies />} />
 	  <Route path='/agencies/:id' element={ <AgencyDetails />} />
 	  <Route path='/listings/:id' element={ <ListingDetails />} />
+	  <Route path='*' element={ <PageNotFound />} />
+	  
     </Routes>
 	<ToastContainer />
     <Footer />

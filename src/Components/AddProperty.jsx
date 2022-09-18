@@ -1,327 +1,340 @@
 /* eslint-disable default-case */
-import React, {useEffect, useState, useContext} from 'react'
-import { Row, Col, Button, Form, Container } from "react-bootstrap";
+import React, { useEffect, useContext } from "react";
+import { Row, Col, Button, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useImmerReducer } from "use-immer";
-import Axios from 'axios';
+import Axios from "axios";
 
 // Toastify
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // Contexts
- import StateContext from "../Contexts/StateContext";
+import StateContext from "../Contexts/StateContext";
 
 function AddProperty() {
-
   function PropertyAdded(props) {
-    toast.success(props)
-     
-    }
+    toast.success(props);
+  }
 
-    const GlobalState = useContext(StateContext)
+  const GlobalState = useContext(StateContext);
 
-    const navigate = useNavigate()
-
-    
-	
+  const navigate = useNavigate();
 
   function SubmitButtonDisplay() {
-		if (
-			GlobalState.userIsLogged &&
-			state.userProfile.agencyName !== null &&
-			state.userProfile.agencyName !== "" &&
-			state.userProfile.phoneNumber !== null &&
-			state.userProfile.phoneNumber !== ""
-		) {
-			return (
-				<Button className="mx-1 mt-4" variant="success" type="submit">
+    if (
+      GlobalState.userIsLogged &&
+      state.userProfile.agencyName !== null &&
+      state.userProfile.agencyName !== "" &&
+      state.userProfile.phoneNumber !== null &&
+      state.userProfile.phoneNumber !== ""
+    ) {
+      return (
+        <Button className="mx-1 mt-4" variant="success" type="submit">
           Submit
         </Button>
-			);
-		} else if (
-			GlobalState.userIsLogged &&
-			(state.userProfile.agencyName === null ||
-				state.userProfile.agencyName === "" ||
-				state.userProfile.phoneNumber === null ||
-				state.userProfile.phoneNumber === "")
-		) {
-			return (
-				<>
-        <Row><h5 className='text-center text-muted'>You need to complete your profile to be able to add property</h5></Row>
-        
-        <Button disabled className="mx-1 mt-4" variant="success">
-          Submit
-        </Button>
-        </>
-			);
-		} else if (!GlobalState.userIsLogged) {
-			return (
+      );
+    } else if (
+      GlobalState.userIsLogged &&
+      (state.userProfile.agencyName === null ||
+        state.userProfile.agencyName === "" ||
+        state.userProfile.phoneNumber === null ||
+        state.userProfile.phoneNumber === "")
+    ) {
+      return (
         <>
-				<Row><h5 className='text-center text-muted'>You need to Log in to your account to add listing</h5></Row>
-        <Row> <Link to='/login'> <Button className="mx-1 mt-4" variant="success" type="submit" >
-        Log in
-      </Button> </Link> </Row>
-      </>
-			);
-		}
-	}
+          <Row>
+            <h5 className="text-center text-muted">
+              You need to complete your profile to be able to add property
+            </h5>
+          </Row>
 
+          <Button disabled className="mx-1 mt-4" variant="success">
+            Submit
+          </Button>
+        </>
+      );
+    } else if (!GlobalState.userIsLogged) {
+      return (
+        <>
+          <Row>
+            <h5 className="text-center text-muted">
+              You need to Log in to your account to add listing
+            </h5>
+          </Row>
+          <Row>
+            {" "}
+            <Link to="/login">
+              {" "}
+              <Button className="mx-1 mt-4" variant="success" type="submit">
+                Log in
+              </Button>{" "}
+            </Link>{" "}
+          </Row>
+        </>
+      );
+    }
+  }
 
-    const initialState = {
-        titleValue: "",
-        listingTypeValue: "",
-        descriptionValue: "",
-        areaValue: "",
-        townValue: "",
-        latitudeValue: "",
-        longitudeValue: "",
-        propertyStatusValue: "",
-        priceValue: "",
-        rentalFrequencyValue: "",
-        roomsValue: "",
-        furnishedValue: false,
-        poolValue: false,
-        elevatorValue: false,
-        cctvValue: false,
-        parkingValue: false,
-        picture1Value: "",
-        picture2Value: "",
-        picture3Value: "",
-        picture4Value: "",
-        picture5Value: "",
-        uploadedPictures: [],
-        sendRequest: 0,
-        userProfile: {
-          agencyName: '',
-          phoneNumber: '',
-        }
-      };
-    
-      function ReducerFuction(draft, action) {
-        switch (action.type) {
-            case "catchTitleChange":
-                draft.titleValue = action.titleChosen;
-                break;
+  const initialState = {
+    titleValue: "",
+    listingTypeValue: "",
+    descriptionValue: "",
+    areaValue: "",
+    townValue: "",
+    latitudeValue: "",
+    longitudeValue: "",
+    propertyStatusValue: "",
+    priceValue: "",
+    rentalFrequencyValue: "",
+    roomsValue: "",
+    furnishedValue: false,
+    poolValue: false,
+    elevatorValue: false,
+    cctvValue: false,
+    parkingValue: false,
+    picture1Value: "",
+    picture2Value: "",
+    picture3Value: "",
+    picture4Value: "",
+    picture5Value: "",
+    uploadedPictures: [],
+    sendRequest: 0,
+    userProfile: {
+      agencyName: "",
+      phoneNumber: "",
+    },
+  };
 
-            case "catchListingTypeChange":
-                draft.listingTypeValue = action.listingTypeChosen;
-                break;
+  function ReducerFuction(draft, action) {
+    switch (action.type) {
+      case "catchTitleChange":
+        draft.titleValue = action.titleChosen;
+        break;
 
-            case "catchDescriptionChange":
-                draft.descriptionValue = action.descriptionChosen;
-                break;
+      case "catchListingTypeChange":
+        draft.listingTypeValue = action.listingTypeChosen;
+        break;
 
-            case "catchAreaChange":
-                draft.areaValue = action.areaChosen;
-                break;
+      case "catchDescriptionChange":
+        draft.descriptionValue = action.descriptionChosen;
+        break;
 
-            case "catchTownChange":
-                draft.townValue = action.townChosen;
-                break;
+      case "catchAreaChange":
+        draft.areaValue = action.areaChosen;
+        break;
 
-            case "catchLatitudeChange":
-                draft.latitudeValue = action.latitudeChosen;
-                break;
+      case "catchTownChange":
+        draft.townValue = action.townChosen;
+        break;
 
-            case "catchLongitudeChange":
-                draft.longitudeValue = action.longitudeChosen;
-                break;
+      case "catchLatitudeChange":
+        draft.latitudeValue = action.latitudeChosen;
+        break;
 
-            case "catchPropertyStatusChange":
-                draft.propertyStatusValue = action.propertyStatusChosen;
-                break;
+      case "catchLongitudeChange":
+        draft.longitudeValue = action.longitudeChosen;
+        break;
 
-            case "catchPriceChange":
-                draft.priceValue = action.priceChosen;
-                break;
+      case "catchPropertyStatusChange":
+        draft.propertyStatusValue = action.propertyStatusChosen;
+        break;
 
-            case "catchRentalFrequencyChange":
-                draft.rentalFrequencyValue = action.rentalFrequencyChosen;
-                break;
+      case "catchPriceChange":
+        draft.priceValue = action.priceChosen;
+        break;
 
-            case "catchRoomChange":
-                draft.roomsValue = action.roomsChosen;
-                break;
+      case "catchRentalFrequencyChange":
+        draft.rentalFrequencyValue = action.rentalFrequencyChosen;
+        break;
 
-            case "catchFurnishedChange":
-                draft.furnishedValue = action.furnishedChosen;
-                break;
+      case "catchRoomChange":
+        draft.roomsValue = action.roomsChosen;
+        break;
 
-            case "catchPoolChange":
-                draft.poolValue = action.poolChosen;
-                break;
+      case "catchFurnishedChange":
+        draft.furnishedValue = action.furnishedChosen;
+        break;
 
-            case "catchElevatorChange":
-                draft.elevatorValue = action.elevatorChosen;
-                break;
+      case "catchPoolChange":
+        draft.poolValue = action.poolChosen;
+        break;
 
-            case "catchCctvChange":
-                draft.cctvValue = action.cctvChosen;
-                break;
+      case "catchElevatorChange":
+        draft.elevatorValue = action.elevatorChosen;
+        break;
 
-            case "catchParkingChange":
-                draft.parkingValue = action.parkingChosen;
-                break;
+      case "catchCctvChange":
+        draft.cctvValue = action.cctvChosen;
+        break;
 
-            case "catchPicture1Change":
-                draft.picture1Value = action.picture1Chosen;
-                break;
+      case "catchParkingChange":
+        draft.parkingValue = action.parkingChosen;
+        break;
 
-            case "catchPicture2Change":
-                draft.picture2Value = action.picture2Chosen;
-                break;
+      case "catchPicture1Change":
+        draft.picture1Value = action.picture1Chosen;
+        break;
 
-            case "catchPicture3Change":
-                draft.picture3Value = action.picture3Chosen;
-                break;
+      case "catchPicture2Change":
+        draft.picture2Value = action.picture2Chosen;
+        break;
 
-            case "catchPicture4Change":
-                draft.picture4Value = action.picture4Chosen;
-                break;
+      case "catchPicture3Change":
+        draft.picture3Value = action.picture3Chosen;
+        break;
 
-            case "catchPicture5Change":
-                draft.picture5Value = action.picture5Chosen;
-                break;
+      case "catchPicture4Change":
+        draft.picture4Value = action.picture4Chosen;
+        break;
 
-            case "catchUploadedPictures":
-                draft.uploadedPictures = action.picturesChosen;
-                break;
-            
-            case 'changeSendRequest':
-                draft.sendRequest = draft.sendRequest + 1;
-                break
-                
-              case 'catchUserProfileInfo':
-              draft.userProfile.agencyName = action.profileObject.agency_name;
-              draft.userProfile.phoneNumber = action.profileObject.phone_number;
-              break 
-        
-    
-        }
-      }
-      
+      case "catchPicture5Change":
+        draft.picture5Value = action.picture5Chosen;
+        break;
 
-      const [state, dispatch] = useImmerReducer(ReducerFuction, initialState);
+      case "catchUploadedPictures":
+        draft.uploadedPictures = action.picturesChosen;
+        break;
 
-      // Picture Upload
+      case "changeSendRequest":
+        draft.sendRequest = draft.sendRequest + 1;
+        break;
 
-      // Picture 1
-      useEffect(()=>{
-        if (state.uploadedPictures[0]){
-            dispatch({type: 'catchPicture1Change', picture1Chosen: state.uploadedPictures[0],})
-        }
-      },[state.uploadedPictures[0]])
+      case "catchUserProfileInfo":
+        draft.userProfile.agencyName = action.profileObject.agency_name;
+        draft.userProfile.phoneNumber = action.profileObject.phone_number;
+        break;
+    }
+  }
 
+  const [state, dispatch] = useImmerReducer(ReducerFuction, initialState);
 
-      // Picture 2
+  // Picture Upload
 
-      useEffect(()=>{
-        if (state.uploadedPictures[1]){
-            dispatch({type: 'catchPicture2Change', picture2Chosen: state.uploadedPictures[1],})
-        }
-      },[state.uploadedPictures[1]])
+  // Picture 1
+  useEffect(() => {
+    if (state.uploadedPictures[0]) {
+      dispatch({
+        type: "catchPicture1Change",
+        picture1Chosen: state.uploadedPictures[0],
+      });
+    }
+  }, [state.uploadedPictures[0]]);
 
+  // Picture 2
 
-       // Picture 3
+  useEffect(() => {
+    if (state.uploadedPictures[1]) {
+      dispatch({
+        type: "catchPicture2Change",
+        picture2Chosen: state.uploadedPictures[1],
+      });
+    }
+  }, [state.uploadedPictures[1]]);
 
-       useEffect(()=>{
-        if (state.uploadedPictures[2]){
-            dispatch({type: 'catchPicture3Change', picture3Chosen: state.uploadedPictures[2],})
-        }
-      },[state.uploadedPictures[2]])
+  // Picture 3
 
-       // Picture 4
+  useEffect(() => {
+    if (state.uploadedPictures[2]) {
+      dispatch({
+        type: "catchPicture3Change",
+        picture3Chosen: state.uploadedPictures[2],
+      });
+    }
+  }, [state.uploadedPictures[2]]);
 
-       useEffect(()=>{
-        if (state.uploadedPictures[3]){
-            dispatch({type: 'catchPicture4Change', picture4Chosen: state.uploadedPictures[3],})
-        }
-      },[state.uploadedPictures[3]])
+  // Picture 4
 
-       // Picture 5
+  useEffect(() => {
+    if (state.uploadedPictures[3]) {
+      dispatch({
+        type: "catchPicture4Change",
+        picture4Chosen: state.uploadedPictures[3],
+      });
+    }
+  }, [state.uploadedPictures[3]]);
 
-       useEffect(()=>{
-        if (state.uploadedPictures[4]){
-            dispatch({type: 'catchPicture5Change', picture5Chosen: state.uploadedPictures[4],})
-        }
-      },[state.uploadedPictures[4]])
+  // Picture 5
 
+  useEffect(() => {
+    if (state.uploadedPictures[4]) {
+      dispatch({
+        type: "catchPicture5Change",
+        picture5Chosen: state.uploadedPictures[4],
+      });
+    }
+  }, [state.uploadedPictures[4]]);
 
-    // Picture Upload END
+  // Picture Upload END
 
-    // Request profile info
+  // Request profile info
 
-    useEffect(()=>{
-      async function GetProfileInfo(){
+  useEffect(() => {
+    async function GetProfileInfo() {
+      try {
+        const response = await Axios.get(
+          `https://ci-myhome.herokuapp.com/api/profiles/${GlobalState.userId}`
+        );
+
+        dispatch({
+          type: "catchUserProfileInfo",
+          profileObject: response.data,
+        });
+      } catch (e) {}
+    }
+    GetProfileInfo();
+  }, []);
+
+  function FormSubmit(e) {
+    e.preventDefault();
+
+    dispatch({ type: "changeSendRequest" });
+  }
+
+  useEffect(() => {
+    if (state.sendRequest) {
+      async function AddProperty() {
+        const formData = new FormData();
+
+        formData.append("title", state.titleValue);
+        formData.append("description", state.descriptionValue);
+        formData.append("area", state.areaValue);
+        formData.append("town", state.townValue);
+        formData.append("listing_type", state.listingTypeValue);
+        formData.append("property_status", state.propertyStatusValue);
+        formData.append("price", state.priceValue);
+        formData.append("rental_frequency", state.rentalFrequencyValue);
+        formData.append("rooms", state.roomsValue);
+        formData.append("furnished", state.furnishedValue);
+        formData.append("pool", state.poolValue);
+        formData.append("elevator", state.elevatorValue);
+        formData.append("cctv", state.cctvValue);
+        formData.append("parking", state.parkingValue);
+        formData.append("latitude", state.latitudeValue);
+        formData.append("longitude", state.longitudeValue);
+        formData.append("picture1", state.picture1Value);
+        formData.append("picture2", state.picture2Value);
+        formData.append("picture3", state.picture3Value);
+        formData.append("picture4", state.picture4Value);
+        formData.append("picture5", state.picture5Value);
+        formData.append("seller", GlobalState.userId);
+
         try {
-          const response = await Axios.get(`https://ci-myhome.herokuapp.com/api/profiles/${GlobalState.userId}`);
-          
-          dispatch({type: 'catchUserProfileInfo', profileObject: response.data })
-        } catch(e){
-         
-        }
-      }
-      GetProfileInfo()
-    },[])
+          const response = await Axios.post(
+            "https://ci-myhome.herokuapp.com/api/listings/create/",
+            formData
+          );
 
-
-    function FormSubmit(e) {
-        e.preventDefault();
-        
-        dispatch({type: 'changeSendRequest'});
+          navigate("/listings");
+        } catch (e) {}
       }
 
+      AddProperty();
 
-      useEffect(()=>{
-        if (state.sendRequest){
-            async function AddProperty() {
-                const formData = new FormData()
-
-                    formData.append("title", state.titleValue);
-                    formData.append("description", state.descriptionValue );
-                    formData.append("area", state.areaValue );
-                    formData.append("town", state.townValue );
-                    formData.append("listing_type", state.listingTypeValue );
-                    formData.append("property_status", state.propertyStatusValue );
-                    formData.append("price", state.priceValue );
-                    formData.append("rental_frequency", state.rentalFrequencyValue );
-                    formData.append("rooms", state.roomsValue );
-                    formData.append("furnished", state.furnishedValue );
-                    formData.append("pool", state.poolValue );
-                    formData.append("elevator", state.elevatorValue );
-                    formData.append("cctv", state.cctvValue );
-                    formData.append("parking", state.parkingValue );
-                    formData.append("latitude", state.latitudeValue );
-                    formData.append("longitude", state.longitudeValue );
-                    formData.append("picture1", state.picture1Value );
-                    formData.append("picture2", state.picture2Value );
-                    formData.append("picture3", state.picture3Value );
-                    formData.append("picture4", state.picture4Value );
-                    formData.append("picture5", state.picture5Value );
-                    formData.append("seller", GlobalState.userId );
-                
-                try {
-
-                    const response = await Axios.post("https://ci-myhome.herokuapp.com/api/listings/create/", formData);
-                    
-                    navigate('/listings')
-                } catch (e) {
-                    
-                }
-
-            }
-
-            AddProperty();
-
-            PropertyAdded('Property Added')
-        }
-      }, [state.sendRequest]);
-
-
-      
-
+      PropertyAdded("Property Added");
+    }
+  }, [state.sendRequest]);
 
   return (
     <Row className="login-form justify-content-center align-items-center">
@@ -333,7 +346,6 @@ function AddProperty() {
 
           <Row>
             <Col xs={12} sm={12} md={6} lg={6} xl={6}>
-              
               <Form.Group className="mb-3" controlId="formBasic">
                 <Form.Label>Title</Form.Label>
                 <Form.Control
@@ -347,26 +359,30 @@ function AddProperty() {
                       titleChosen: e.target.value,
                     })
                   }
-                  
                 />
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlTextarea1"
+              >
                 <Form.Label>Description</Form.Label>
-                <Form.Control as="textarea" rows={3}
-                required 
-                placeholder="Add description"
-                value={state.descriptionValue}
-                onChange={(e) =>
-                  dispatch({
-                    type: "catchDescriptionChange",
-                    descriptionChosen: e.target.value,
-                  })
-                }/>
-                 </Form.Group>
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  required
+                  placeholder="Add description"
+                  value={state.descriptionValue}
+                  onChange={(e) =>
+                    dispatch({
+                      type: "catchDescriptionChange",
+                      descriptionChosen: e.target.value,
+                    })
+                  }
+                />
+              </Form.Group>
 
-
-                <Form.Group className="mb-3" controlId="formBasic">
+              <Form.Group className="mb-3" controlId="formBasic">
                 <Form.Label>Town</Form.Label>
                 <Form.Control
                   required
@@ -381,7 +397,6 @@ function AddProperty() {
                   }
                 />
               </Form.Group>
-
 
               <Form.Group className="mb-3" controlId="formBasic">
                 <Form.Label>Latitude</Form.Label>
@@ -415,7 +430,10 @@ function AddProperty() {
                 />
               </Form.Group>
 
-              <p className="m-3">Information  on How to get Latitude and Longitude can be found here</p>
+              <p className="m-3">
+                Information on How to get Latitude and Longitude can be found
+                here
+              </p>
 
               <Form.Group className="mb-3" controlId="formBasic">
                 <Form.Label>Price</Form.Label>
@@ -433,9 +451,6 @@ function AddProperty() {
                 />
               </Form.Group>
 
-
-
-
               <Form.Group className="mb-3" controlId="formBasic">
                 <Form.Label>Rooms</Form.Label>
                 <Form.Control
@@ -451,170 +466,206 @@ function AddProperty() {
                   }
                 />
               </Form.Group>
-
-
             </Col>
 
             <Col xs={12} sm={12} md={6} lg={6} xl={6}>
-            
-            <Form.Label>Listing Type</Form.Label>
-            <Form.Select className="mb-3" size="md"
-            required
-            value={state.listingTypeValue}
-            onChange={(e) =>
-              dispatch({
-                type: "catchListingTypeChange",
-                listingTypeChosen: e.target.value,
-              })
-            }>
-            <option></option>
-            <option>House</option>
-            <option>Apartment</option>
-            <option>Office</option>
-            </Form.Select>
+              <Form.Label>Listing Type</Form.Label>
+              <Form.Select
+                className="mb-3"
+                size="md"
+                required
+                value={state.listingTypeValue}
+                onChange={(e) =>
+                  dispatch({
+                    type: "catchListingTypeChange",
+                    listingTypeChosen: e.target.value,
+                  })
+                }
+              >
+                <option></option>
+                <option>House</option>
+                <option>Apartment</option>
+                <option>Office</option>
+              </Form.Select>
 
+              <Form.Label>Area</Form.Label>
+              <Form.Select
+                className="mb-3"
+                size="md"
+                required
+                value={state.areaValue}
+                onChange={(e) =>
+                  dispatch({
+                    type: "catchAreaChange",
+                    areaChosen: e.target.value,
+                  })
+                }
+              >
+                <option></option>
+                <option>Dublin</option>
+                <option>Outside Dublin</option>
+              </Form.Select>
 
+              <Form.Label>Property Status</Form.Label>
+              <Form.Select
+                className="mb-3"
+                size="md"
+                required
+                value={state.propertyStatusValue}
+                onChange={(e) =>
+                  dispatch({
+                    type: "catchPropertyStatusChange",
+                    propertyStatusChosen: e.target.value,
+                  })
+                }
+              >
+                <option></option>
+                <option>Sale</option>
+                <option>Rent</option>
+              </Form.Select>
 
-            <Form.Label >Area</Form.Label>
-            <Form.Select className="mb-3" size="md"
-            required
-            value={state.areaValue}
-            onChange={(e) =>
-              dispatch({
-                type: "catchAreaChange",
-                areaChosen: e.target.value,
-              })
-            }>
-            <option></option>
-            <option>Dublin</option>
-            <option>Outside Dublin</option>
-            
-            </Form.Select>
+              <Form.Label>Rental Frequency </Form.Label>
+              <Form.Select
+                className="mb-3"
+                size="md"
+                value={state.rentalFrequencyValue}
+                onChange={(e) =>
+                  dispatch({
+                    type: "catchRentalFrequencyChange",
+                    rentalFrequencyChosen: e.target.value,
+                  })
+                }
+              >
+                <option></option>
+                <option>Month</option>
+                <option>Week</option>
+                <option>Day</option>
+              </Form.Select>
 
-            <Form.Label >Property Status</Form.Label>
-            <Form.Select className="mb-3" size="md"
-            required
-            value={state.propertyStatusValue}
-            onChange={(e) =>
-            dispatch({
-                type: "catchPropertyStatusChange",
-                propertyStatusChosen: e.target.value,
-            })
-            }>
-            <option></option>
-            <option>Sale</option>
-            <option>Rent</option>
+              <Form.Label>Features:</Form.Label>
 
-            </Form.Select>
+              <Row xs={12} sm={12} md={12} className="d-flex p-2">
+                <Form.Check
+                  type="switch"
+                  id="custom-switch"
+                  label="Furnished"
+                  // control={<Check checked={state.furnishedValue} onChange}
 
-            <Form.Label >Rental Frequency </Form.Label>
-            <Form.Select className="mb-3" size="md"
-            value={state.rentalFrequencyValue}
-            onChange={(e) =>
-            dispatch({
-                type: "catchRentalFrequencyChange",
-                rentalFrequencyChosen: e.target.value,
-            })
-            }>
-            <option></option>
-            <option>Month</option>
-            <option>Week</option>
-            <option>Day</option>
-
-            </Form.Select>
-
-            
-            <Form.Label>Features:</Form.Label>
-            
-            <Row xs={12} sm={12} md={12} className="d-flex p-2">
-               
-                <Form.Check 
-                type="switch"
-                id="custom-switch"
-                label="Furnished"
-                // control={<Check checked={state.furnishedValue} onChange}
-
-                value={state.furnishedValue}
-                onChange={(e) => dispatch({type: 'catchFurnishedChange', furnishedChosen: e.target.checked})}
+                  value={state.furnishedValue}
+                  onChange={(e) =>
+                    dispatch({
+                      type: "catchFurnishedChange",
+                      furnishedChosen: e.target.checked,
+                    })
+                  }
                 />
 
-                <Form.Check 
-                type="switch"
-                id="custom-switch"
-                label="Pool"
-                // control={<Check checked={state.furnishedValue} onChange}
+                <Form.Check
+                  type="switch"
+                  id="custom-switch"
+                  label="Pool"
+                  // control={<Check checked={state.furnishedValue} onChange}
 
-                value={state.poolValue}
-                onChange={(e) => dispatch({type: 'catchPoolChange', poolChosen: e.target.checked})}
+                  value={state.poolValue}
+                  onChange={(e) =>
+                    dispatch({
+                      type: "catchPoolChange",
+                      poolChosen: e.target.checked,
+                    })
+                  }
                 />
 
+                <Form.Check
+                  type="switch"
+                  id="custom-switch"
+                  label="Elevator"
+                  // control={<Check checked={state.furnishedValue} onChange}
 
-
-                <Form.Check 
-                type="switch"
-                id="custom-switch"
-                label="Elevator"
-                // control={<Check checked={state.furnishedValue} onChange}
-
-                value={state.elevatorValue}
-                onChange={(e) => dispatch({type: 'catchElevatorChange', elevatorChosen: e.target.checked})}
+                  value={state.elevatorValue}
+                  onChange={(e) =>
+                    dispatch({
+                      type: "catchElevatorChange",
+                      elevatorChosen: e.target.checked,
+                    })
+                  }
                 />
 
+                <Form.Check
+                  type="switch"
+                  id="custom-switch"
+                  label="CCTV"
+                  // control={<Check checked={state.furnishedValue} onChange}
 
-                <Form.Check 
-                type="switch"
-                id="custom-switch"
-                label="CCTV"
-                // control={<Check checked={state.furnishedValue} onChange}
-
-                value={state.cctvValue}
-                onChange={(e) => dispatch({type: 'catchCctvChange', cctvChosen: e.target.checked})}
+                  value={state.cctvValue}
+                  onChange={(e) =>
+                    dispatch({
+                      type: "catchCctvChange",
+                      cctvChosen: e.target.checked,
+                    })
+                  }
                 />
 
+                <Form.Check
+                  type="switch"
+                  id="custom-switch"
+                  label="Parking"
+                  // control={<Check checked={state.furnishedValue} onChange}
 
-                <Form.Check 
-                type="switch"
-                id="custom-switch"
-                label="Parking"
-                // control={<Check checked={state.furnishedValue} onChange}
-
-                value={state.parkingValue}
-                onChange={(e) => dispatch({type: 'catchParkingChange', parkingChosen: e.target.checked})}
+                  value={state.parkingValue}
+                  onChange={(e) =>
+                    dispatch({
+                      type: "catchParkingChange",
+                      parkingChosen: e.target.checked,
+                    })
+                  }
                 />
-                
-        
-            </Row>
-           
-            <Form.Group controlId="formFileMultiple" className="mt-3">
-            <Form.Label>Upload images (Max 5 Images)</Form.Label>
-            <Form.Control 
-            required
-            type="file" 
-            multiple 
-            accept='image/png, image/jpeg' 
-            onChange={(e)=> dispatch({type: 'catchUploadedPictures', picturesChosen: e.target.files})}/>
-            </Form.Group>
+              </Row>
 
-            <div>
-                
-                <ul className='mt-4'>
-                
-                {state.picture1Value ? <li>{state.picture1Value.name}</li> : ''}
-                {state.picture2Value ? <li>{state.picture2Value.name}</li> : ''}
-                {state.picture3Value ? <li>{state.picture3Value.name}</li> : ''}
-                {state.picture4Value ? <li>{state.picture4Value.name}</li> : ''}
-                {state.picture5Value ? <li>{state.picture5Value.name}</li> : ''}
+              <Form.Group controlId="formFileMultiple" className="mt-3">
+                <Form.Label>Upload images (Max 5 Images)</Form.Label>
+                <Form.Control
+                  required
+                  type="file"
+                  multiple
+                  accept="image/png, image/jpeg"
+                  onChange={(e) =>
+                    dispatch({
+                      type: "catchUploadedPictures",
+                      picturesChosen: e.target.files,
+                    })
+                  }
+                />
+              </Form.Group>
+
+              <div>
+                <ul className="mt-4">
+                  {state.picture1Value ? (
+                    <li>{state.picture1Value.name}</li>
+                  ) : (
+                    ""
+                  )}
+                  {state.picture2Value ? (
+                    <li>{state.picture2Value.name}</li>
+                  ) : (
+                    ""
+                  )}
+                  {state.picture3Value ? (
+                    <li>{state.picture3Value.name}</li>
+                  ) : (
+                    ""
+                  )}
+                  {state.picture4Value ? (
+                    <li>{state.picture4Value.name}</li>
+                  ) : (
+                    ""
+                  )}
+                  {state.picture5Value ? (
+                    <li>{state.picture5Value.name}</li>
+                  ) : (
+                    ""
+                  )}
                 </ul>
-                
-            </div>
-
-            
-          
-
-            
-
-
-
+              </div>
             </Col>
 
             <Row
@@ -626,9 +677,7 @@ function AddProperty() {
               className="justify-content-center align-items-center"
             >
               {SubmitButtonDisplay()}
-
-           </Row>
-
+            </Row>
           </Row>
         </Form>
       </Col>

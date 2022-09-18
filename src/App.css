@@ -102,6 +102,12 @@ h1{
   padding: 3rem;
 }
 
+.card-image{
+  width: 230px;
+  height: 230px;
+  margin: auto;
+}
+
 .listings-scroll{
   max-height: 90vh;
   overflow-y: scroll;

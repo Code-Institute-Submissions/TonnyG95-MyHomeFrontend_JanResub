@@ -1,9 +1,8 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import {
   Row,
   Col,
   Button,
-  Form,
   Container,
   Card,
   Spinner,
@@ -116,7 +115,9 @@ function AgencyDetails() {
                 <h6 className="text-center my-4">
                   {state.userProfile.phoneNumber}
                 </h6>
-                <h6 className="text-center my-4">{state.userProfile.sellerListings.length}</h6>
+                <h6 className="text-center my-4">
+                  {state.userProfile.sellerListings.length}
+                </h6>
               </Col>
             </Row>
 
