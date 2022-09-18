@@ -6,9 +6,10 @@
 
 
 
-![1_MQ-Lf8tmtfa-pumN2Sh0cw](https://user-images.githubusercontent.com/47572512/190904216-730aef8f-b3a8-43a1-aaa6-97edbc71f7fd.png)
+![screencapture-3000-tonnyg95-myhomefrontend-jt8lx9x2r6e-ws-eu64-gitpod-io-2022-09-18-15_55_36](https://user-images.githubusercontent.com/47572512/190913485-44db36ff-c82b-42cc-bf68-e4580acb780f.png)
 
 
+A deployed FrontEnd can be found [Here](https://ci-myhomefrontend.herokuapp.com/). \
 A deployed API can be found [Here](https://ci-myhome.herokuapp.com/).
 
 # Table of contents
