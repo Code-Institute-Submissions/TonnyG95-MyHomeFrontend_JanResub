@@ -6,14 +6,14 @@ function Footer() {
     <footer>
       <Row className="bg-dark">
         <Container>
-          <Row className="py-2">
+          <Row>
             <Col
               xs={12}
               sm={12}
               md={4}
               lg={4}
               xl={4}
-              className="text-light text-center mt-5"
+              className="text-light text-center mt-5 py-3"
             >
               <h5>About us</h5>
 
