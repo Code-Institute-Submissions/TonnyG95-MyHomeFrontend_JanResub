@@ -228,7 +228,7 @@ function Register() {
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Password</Form.Label>
             <Form.Control
-              placeholder="Password must contain uppercase, lowercase, numbers and symbols"
+              placeholder="Password"
               value={state.passwordValue}
               onChange={(e) =>
                 dispatch({
@@ -254,7 +254,7 @@ function Register() {
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Confirm Password</Form.Label>
             <Form.Control
-              placeholder="Password must contain uppercase, lowercase, numbers and symbols"
+              placeholder="Confirm Password"
               value={state.password2Value}
               onChange={(e) =>
                 dispatch({
