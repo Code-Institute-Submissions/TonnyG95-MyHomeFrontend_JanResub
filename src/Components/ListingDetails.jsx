@@ -171,7 +171,7 @@ function ListingDetails() {
             </h5>
 
             <img
-              className="rounded my-4 placeholed-image"
+              className="rounded my-4 profile-image"
               src={
                 state.sellerProfileInfo.profile_picture
                   ? state.sellerProfileInfo.profile_picture
