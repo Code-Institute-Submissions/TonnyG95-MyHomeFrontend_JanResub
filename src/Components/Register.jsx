@@ -171,18 +171,8 @@ function Register() {
 
   return (
     <Row className="text-center main ">
-      <Col
-        className="bg-dark text-light text-center py-5"
-        xs={12}
-        md={3}
-        lg={3}
-        xl={3}
-      >
-        {" "}
-        <h5>Thank you for registration</h5>{" "}
-      </Col>
 
-      <Col className="my-4 justify-content-center" xs={12} md={9} lg={9} xl={9}>
+      <Col className="my-4 justify-content-center singup-form" xs={12} md={9} lg={9} xl={9}>
         <Form onSubmit={FormSubmit} className="px-5 box bg-light">
           <h1 className="m-4">Create an account</h1>
 

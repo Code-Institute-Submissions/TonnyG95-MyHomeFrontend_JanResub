@@ -94,13 +94,14 @@ function Login() {
             type: "catchToken",
             tokenValue: response.data.auth_token,
           });
-          loggedin("You are logged in");
+          
         } catch (error) {
           dispatch({ type: "catchServerError" });
           WrongLogin("We cannot find the user with this e-mail or password");
         }
       }
       SingIn();
+      
       return () => {
         source.cancel();
       };
@@ -128,15 +129,18 @@ function Login() {
             emailInfo: response.data.email,
             IdInfo: response.data.id,
           });
-          navigate("/");
-        } catch (error) {}
+          loggedin('You are logged in')
+          navigate('/')
+        } catch (error) {
+          WrongLogin('Invalid username or e-mail')
+        }
       }
       GetUserInfo();
       return () => {
         source.cancel();
       };
     }
-  }, [state.sendRequest]);
+  }, [state.token]);
 
   return (
     <Row className="text-center login-form justify-content-center align-items-center">
