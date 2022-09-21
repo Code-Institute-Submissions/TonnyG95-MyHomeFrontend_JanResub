@@ -74,7 +74,7 @@ function Agencies() {
                 <Col xs={12} md={7} lg={7} xl={7} className="mx-auto">
                   <Card key={agency.id} className="py-3 box">
                     <Card.Img
-                      className="p-3 placeholder-image"
+                      className="p-3 profile-image"
                       variant="top"
                       src={
                         agency.profile_picture

@@ -90,7 +90,7 @@ function AgencyDetails() {
             <h5 className="text-center">{state.userProfile.agencyName}</h5>
 
             <img
-              className="rounded my-4 placeholed-image"
+              className="rounded my-4 profile-image"
               src={
                 state.userProfile.profilePic
                   ? state.userProfile.profilePic

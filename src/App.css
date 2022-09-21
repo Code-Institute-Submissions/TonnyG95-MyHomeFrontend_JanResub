@@ -97,11 +97,16 @@ h1{
   height: 100vh;
 }
 
-.placeholed-image{
+.placeholder-image{
   width: 250px;
   height: 250px;
   margin: auto;
-  padding: 3rem;
+}
+
+.profile-image{
+  max-width: 250px;
+  max-height: 250px;
+  margin: auto;
 }
 
 .card-image{
@@ -192,4 +197,5 @@ h1{
 .singup-form{
   margin: auto;
 }
+
 
