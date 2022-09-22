@@ -432,7 +432,7 @@ function AddProperty() {
 
               <p className="m-3">
                 Information on How to get Latitude and Longitude can be found
-                here
+                <a href="https://ci-myhomefrontend.herokuapp.com/tutorial" target="_blank" rel="noopener noreferrer"> Here</a>
               </p>
 
               <Form.Group className="mb-3" controlId="formBasic">

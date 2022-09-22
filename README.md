@@ -144,7 +144,7 @@ The app design idea was created with Figma since this is my preferred tool. The 
 
 ## Design Choices
 
-The main idea for the design of this app was to make it look luxurious since this is a real estate portal. However, I still wanted to make it simple and intuitive so users can easily navigate a website and find the information they need. That's why I chose to go with an excellent combination of dark and light colours with a few lighters and darker accent colors that can be seen on hover on some elements such as cards
+The main idea for the design of this app was to make it look luxurious since this is a real estate portal. However, I still wanted to make it simple and intuitive so users can easily navigate a website and find the information they need. That's why I chose to go with an excellent combination of dark and light colors with a few lighters and darker accent colors that can be seen on hover on some elements such as cards
 
 ![cICgcvX](https://user-images.githubusercontent.com/47572512/190928971-20088c2b-3570-49b3-89bf-f8bce86093aa.jpeg)
 
@@ -164,7 +164,7 @@ Or here on listings card on right
 
 ## Included Features
 
-- Fully responsive desing
+- Fully responsive design
 - Simple but beautify UI
 - Full CRUD Functionality
 - Login and Registration
@@ -176,13 +176,13 @@ Or here on listings card on right
 
 ## Future Implementations
 
-This project will keep receiving security and features updates. It will be in active development. The project's current state has all the basic functionalities needed for a user to have fully funcional portal. The site owner also has access to all the data through Django's admin panel. The next phase will be adding more features to the site, enhancing user experience and control over the app. The following features are planned to be implemented:
+This project will keep receiving security and features updates. It will be in active development. The project's current state has all the basic functionalities needed for a user to have fully functional portal. The site owner also has access to all the data through Django's admin panel. The next phase will be adding more features to the site, enhancing user experience and control over the app. The following features are planned to be implemented:
 
 - Admin panel in frontend app
 - Contact form for users to contact sellers directly to on listing details page
-- Activaction and welcome e-mail
+- Activation and welcome e-mail
 - Notification system 
-- Ability to collect Latitude and Longitude directly from map (Curently those information must come from google maps)
+- Ability to collect Latitude and Longitude directly from map (Currently those information must come from google maps)
 - Mailchimp integration
 
 
@@ -345,6 +345,6 @@ Rebuilt for React.
 During this project, I got a new mentor Rohit Sharma. I want to thank him for all tips and tricks that helped me improve this project and I want to thank him for all time he spent answering my questions. And big thanks to Code Institute Tutors Jonh and Gemma for helping me with this project. 
 
 ### Disclaimer
-This project was create for educational purposes only, and credits for all pictures/icons and listings used in this project go to their respective owners.
+This project was created for educational purposes only, and credits for all pictures/icons and listings used in this project go to their respective owners.
 
 [Back to top](#table-of-contents)

@@ -32,6 +32,7 @@ import ListingDetails from './Components/ListingDetails';
 import AgencyDetails from './Components/AgencyDetails';
 import Agencies from './Components/Agencies';
 import PageNotFound from './Components/PageNotFound';
+import Tutorial from './Components/Tutorial';
 
 
 
@@ -99,6 +100,7 @@ function App() {
 	  <Route path='/agencies' element={ <Agencies />} />
 	  <Route path='/agencies/:id' element={ <AgencyDetails />} />
 	  <Route path='/listings/:id' element={ <ListingDetails />} />
+	  <Route path='/tutorial' element={ <Tutorial />} />
 	  <Route path='*' element={ <PageNotFound />} />
 	  
     </Routes>
