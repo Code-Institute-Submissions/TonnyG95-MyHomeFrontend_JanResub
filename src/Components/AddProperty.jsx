@@ -18,6 +18,11 @@ function AddProperty() {
     toast.success(props);
   }
 
+  function PropertyError(props) {
+    toast.error(props);
+  }
+
+
   const GlobalState = useContext(StateContext);
 
   const navigate = useNavigate();
@@ -288,7 +293,6 @@ function AddProperty() {
 
   function FormSubmit(e) {
     e.preventDefault();
-
     dispatch({ type: "changeSendRequest" });
   }
 
@@ -325,14 +329,16 @@ function AddProperty() {
             "https://ci-myhome.herokuapp.com/api/listings/create/",
             formData
           );
-
+          PropertyAdded("Property Added");
           navigate("/listings");
-        } catch (e) {}
+        } catch (e) {
+          PropertyError('Error! Please make sure that all fields are correct')
+        }
       }
 
       AddProperty();
 
-      PropertyAdded("Property Added");
+      
     }
   }, [state.sendRequest]);
 
