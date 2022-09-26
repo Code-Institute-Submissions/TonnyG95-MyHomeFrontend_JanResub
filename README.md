@@ -42,7 +42,6 @@ A deployed API can be found [Here](https://ci-myhome.herokuapp.com/).
 - [Deployment](#deployment)
 - [Forking the Repository](#forking-the-repository)
 - [Creating a Clone](#creating-a-clone)
-- [Local Development](#local-development)
 - [Credits](#credits)
     - [Links](#links)
     - [Acknowledgements](#acknowledgements)
@@ -330,23 +329,6 @@ How to run this project within a local IDE, such as VSCode:
 
 [Back to top](#table-of-contents)
 
-# Local Development
-
-1. Log in to GitHub and locate the Repository
-2. Click the [Code](//docs/images/deployment/clone-button.png) button and then choose your method.
-3. To clone the repository using HTTPS, under the "HTTPS" tab copy the link. You could also choose to open it with Github desktop, Visual Studio or download it as a zip file.
-4. Open the command prompt on your computer
-5. Go to the location where you want the clone to be created.
-6. Type `git clone`, and then paste the URL you copied in Step 3.
-
-  ```
-  $ git clone https://github.com/TonnyG95/MyHomeFrontend
-  ```
-
-7. Pressing `Enter` will create the clone.
-8. This will create a folder with all repository files
-
-<br>
 
 # Credits
 
