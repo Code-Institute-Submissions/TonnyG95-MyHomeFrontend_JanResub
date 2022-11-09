@@ -20,7 +20,6 @@ A deployed API can be found [Here](https://ci-myhome.herokuapp.com/).
     - [What is MyHome?](#what-is-myhome)
     - [What is the idea behind this project?](#what-is-the-idea-behind-this-project)
 - [Technologies](#technologies)
-    - [This application is separated into two parts. BackEnd and FrontEnd. Both applications are deployed separately, and both use different technologies. You can find more information about them here](#this-application-is-separated-into-two-parts-backend-and-frontend-both-applications-are-deployed-separately-and-both-use-different-technologies-you-can-find-more-information-about-them-here)
     - [FrontEnd Technologies](#frontend-technologies)
     - [BackEnd Technologies](#backend-technologies)
     - [FrontEnd Requirements](#frontend-requirements)
@@ -32,6 +31,12 @@ A deployed API can be found [Here](https://ci-myhome.herokuapp.com/).
   - [UI \\ UX](#ui--ux)
   - [Design Choices](#design-choices)
     - [Colors](#colors)
+  - [About ReactJS](#about-reactjs)
+    - [What is ReactJS](#what-is-reactjs)
+    - [Why ReactJS?](#why-reactjs)
+    - [ReactJS Developer Experience](#reactjs-developer-experience)
+    - [User Benefits](#user-benefits)
+    - [Reusable components](#reusable-components)
 - [Features](#features)
   - [Included Features](#included-features)
   - [Future Implementations](#future-implementations)
@@ -62,7 +67,7 @@ The idea behind MyHome was to create a simple, user-intuitive real estate app th
 
 # Technologies
 
-### This application is separated into two parts. BackEnd and FrontEnd. Both applications are deployed separately, and both use different technologies. You can find more information about them here
+This application is separated into two parts. BackEnd and FrontEnd. Both applications are deployed separately, and both use different technologies. You can find more information about them here
 
 
 ### FrontEnd Technologies
@@ -133,6 +138,7 @@ Test with [web.dev](https://web.dev/). gave me those results
 
 Test with [GTMetrix](https://gtmetrix.com/). gave me those results 
 
+[Back to top](#table-of-contents)
 
 # Structure
 
@@ -144,7 +150,7 @@ The app design idea was created with Figma since this is my preferred tool. The 
 
 ## Design Choices
 
-The main idea for the design of this app was to make it look luxurious since this is a real estate portal. However, I still wanted to make it simple and intuitive so users can easily navigate a website and find the information they need. That's why I chose to go with an excellent combination of dark and light colors with a few lighters and darker accent colors that can be seen on hover on some elements such as cards
+The main idea for the design of this app was to make it look luxurious, fast and fluid since this is a real estate portal. I still wanted to make it simple and intuitive so users can easily navigate a website and find the information they need. That's why I chose to go with an excellent combination of dark and light colors with a few lighters and darker accent colors that can be seen on hover on some elements such as cards. Since this app needs to be fast and fluid i used ReactJS on frontend.
 
 ![cICgcvX](https://user-images.githubusercontent.com/47572512/190928971-20088c2b-3570-49b3-89bf-f8bce86093aa.jpeg)
 
@@ -157,6 +163,30 @@ Or here on listings card on right
 ### Colors
 
 ![colors](https://user-images.githubusercontent.com/47572512/190929327-33b3ccf6-b298-49d5-b246-7dd1617b4264.png)
+
+[Back to top](#table-of-contents)
+
+## About ReactJS
+
+### What is ReactJS
+
+ReactJS is an open-source JavaScript library that first made an official appearance in 2013. It was developed by Facebook with the sole objective of creating rich, value-loaded, and engaging web pages that deliver high performance with minimal coding
+
+### Why ReactJS?
+
+React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes. Declarative views make code more predictable and easier to debug.
+
+### ReactJS Developer Experience
+
+Currently ReactJS is the most popular frontend JavaScript library – it is proven by trends among biggest tech websites (ex. GitHub, Stack Overflow) and by the number of job offers. React created by Facebook is a project with great marketing, with low entry threshold (ex. comparing to Angular), large community, and awesome portability
+
+### User Benefits
+
+Because ReactJS uses reusable components that improves app performance and speed because React Virtual DOM implementation compares app abstraction between changes and re-renders only the changed parts of the app.
+
+### Reusable components
+
+Developers are able to create reusable components. It lets the developers create small pieces of UI and include them in any place of the application. You can combine many smaller components to create a bigger, complex UI. 
 
 [Back to top](#table-of-contents)
 
