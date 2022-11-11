@@ -288,39 +288,9 @@ I tested responsive design and all pages are responsive.
 To deploy this page to Heroku from its GitHub repository, the following steps were taken:
 
 1. Create the Heroku App:
-
 2. Select "Create new app" in Heroku.
 3. Choose a name for your app and select the location.
-4. Attach the Postgres database
-
-5. In the Resources tab, under add-ons, type in Postgres and select the Heroku Postgres option.
-6. Prepare the environment and settings.py
-
-7. In the Settings tab, click on Reveal Config Vars and copy the url next to DATABASE_URL.
-8. In your GitPod workspace, create an env.py file in the main directory.
-    - Add the DATABASE_URL value and your chosen SECRET_KEY value to the env.py file.
-    - Add the SECRET_KEY value to the Config Vars in Heroku.
-    - Update the settings.py file to import the env file and add the SECRETKEY and DATABASE_URL file paths.
-    - Update the Config Vars with the Cloudinary url, adding into the settings.py file also.
-    - In settings.py add the following sections
-    - Cloudinary to the INSTALLED_APPS list
-    - STATICFILE_STORAGE
-    - STATICFILES_DIRS
-    - STATIC_ROOT
-    - MEDIA_URL
-    - DEFAULT_FILE_STORAGE
-    - TEMPLATES_DIR
-    - Update DIRS in TEMPLATES with TEMPLATES_DIR
-    - Update ALLOWED_HOSTS with ['app_name.heroku.com', 'localhost']
-    - Store Static and Media files in Cloudinary and Deploy to Heroku:
-
-9. Create three directories in the main directory
-    - media 
-    - storage
-    - templates
-10. Create a file named "Procfile" in the main directory and add the following:
-    - web: gunicorn project-name.wsgi
-11. Go to the Deploy tab on Heroku and connect to GitHub, then to the required repository. Click on Deploy Branch and wait for the build to load. When the build is complete, the app can be opened through Heroku and automatic deployments can be enabled.
+4. Go to the Deploy tab on Heroku and connect to GitHub, then to the required repository. Click on Deploy Branch and wait for the build to load. When the build is complete, the app can be opened through Heroku and automatic deployments can be enabled.
 
 [Back to top](#table-of-contents)
 
